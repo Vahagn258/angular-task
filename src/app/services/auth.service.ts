@@ -1,16 +1,22 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { HttpService } from './http.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { ICountryCode, IObject, IResponse } from 'app/interfaces';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService extends HttpService {
 
-  constructor(override readonly http: HttpClient) {
+  isBrowser: boolean = true;
+
+  constructor(override readonly http: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: any
+  ) {
     super(http);
+    this.isBrowser = isPlatformBrowser(platformId);
   }
 
   getCountryCodes(): Observable<ICountryCode[]> {
@@ -29,14 +35,16 @@ export class AuthService extends HttpService {
   }
 
   get currentToken(): string {
-    return localStorage.getItem('token') || '';
+    return this.isBrowser ? (localStorage?.getItem('token') || '') : '';
   }
 
   set currentToken(value: string | null) {
-    if (!value) {
-      localStorage.removeItem('token');
-    } else {
-      localStorage.setItem('token', value);
+    if (this.isBrowser) {
+      if (!value) {
+        localStorage?.removeItem('token');
+      } else {
+        localStorage?.setItem('token', value);
+      }
     }
   }
 }
