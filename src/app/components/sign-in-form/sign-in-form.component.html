@@ -68,7 +68,7 @@
     }
 
     <div class="flex justify-end submit"
-          [ngClass]="{'next': true}">
+          [ngClass]="{'next': !hasCheckedPhoneNumber, 'blur': isOpen}">
       <button type="button" class="pointer" (click)="proceedNext()" [disabled]="!hasCheckedPhoneNumber ? usernameControl.invalid : form.invalid">{{ (hasCheckedPhoneNumber ? 'login-btn' : 'next') | translate }}</button>
     </div>
   </form>

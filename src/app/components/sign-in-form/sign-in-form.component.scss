@@ -42,6 +42,7 @@ $border-color: #00000033;
         border-radius: 20px;
         max-height: 340px;
         overflow-y: scroll;
+        background: white;
 
         .close {
           height: 32px;
@@ -102,6 +103,7 @@ $border-color: #00000033;
     }
 
     .submit {
+      margin-top: 75px;
 
       &.next {
         margin-top: 40px;
@@ -150,4 +152,9 @@ $border-color: #00000033;
       color: red;
     }
   }
+}
+
+.blur {
+  filter: blur(30px);
+  -webkit-filter: blur(30px);
 }

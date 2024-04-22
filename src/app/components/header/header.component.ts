@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { SwitchLanguageComponent } from '@components/switch-language/switch-language.component';
 import { AuthService } from '@services/auth.service';
@@ -39,7 +39,7 @@ const menuData = [
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements OnInit, OnChanges {
+export class HeaderComponent {
 
   @Input() userData?: IUserData | null;
 
@@ -51,14 +51,6 @@ export class HeaderComponent implements OnInit, OnChanges {
               private router: Router
   ) {
 
-  }
-
-  ngOnInit(): void {
-    // console.log(this.userData)
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.userData)
   }
 
   toggleMenu(): void {

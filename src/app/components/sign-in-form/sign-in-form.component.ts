@@ -98,8 +98,4 @@ export class SignInFormComponent implements OnInit {
   get passwordControl(): AbstractControl<string> {
     return this.form.get('password') as AbstractControl;
   }
-
-  f() {
-    console.log(this.form)
-  }
 }
