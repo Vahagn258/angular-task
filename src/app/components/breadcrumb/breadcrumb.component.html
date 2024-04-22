@@ -1,0 +1,12 @@
+<div class="flex">
+  @for (breadcrumb of breadcrumbs; track breadcrumb.path; let ind = $index) {
+    <div class="breadcrumb">
+      <a [routerLink]="[breadcrumb.path]" routerLinkActive="link-active">
+        {{ breadcrumb.label }}
+      </a>
+      @if (ind !== breadcrumbs.length - 1) {
+        <img src="assets/icons/arrow-right.svg">
+      }
+    </div>
+  }
+</div>

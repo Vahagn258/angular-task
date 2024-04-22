@@ -1,0 +1,75 @@
+<div class="container full-height flex align-center">
+
+  <div class="language absolute">
+    <app-switch-language></app-switch-language>
+  </div>
+
+  <form class="form flex flex-col full-width" [formGroup]="form">
+    <p>{{ 'login' | translate }}</p>
+
+    <div class="flex relative justify-between">
+      <div class="selected-code-container">
+        <p class="label">{{ 'select-code' | translate }}</p>
+        <div class="relative">
+          <div class="selected-code flex align-center justify-between">
+            <span>+ {{ selectedCountryCode }}</span>
+            <img [src]="'assets/icons/dropdown' + (isOpen ? '-opened' : '') + '.svg'" (click)="toggleCountryCodes()"
+              class="pointer">
+          </div>
+        </div>
+      </div>
+
+      <div class="full-width">
+        <p class="label">{{ 'enter-mobile' | translate }}</p>
+        <input appOnlyDigits class="mobile-input" formControlName="username"
+                [ngClass]="{'required': usernameControl.touched && usernameControl.invalid}">
+      </div>
+
+      @if (isOpen) {
+        <div class="country-codes absolute full-width">
+          <div class="close flex justify-end align-center">
+            <img src="assets/icons/close.svg" class="pointer" (click)="toggleCountryCodes(false)">
+          </div>
+
+          @for (countryCode of countryCodes; track countryCode.countryCode; let ind = $index) {
+          <div  class="item flex align-center pointer justify-between"
+                (click)="selectedCountryCode = countryCode.countryCode; toggleCountryCodes(false)"
+                [ngClass]="{'selected': selectedCountryCode == countryCode.countryCode}">
+            <div class="code bold">
+              + {{ countryCode.countryCode }}
+            </div>
+
+            <div class="country">
+              {{ countryCode.countryName }}
+            </div>
+          </div>
+          }
+        </div>
+
+      }
+    </div>
+
+    @if (hasCheckedPhoneNumber) {
+      <div class="password">
+        <p class="label">{{ 'enter-password' | translate }}</p>
+        <div class="inp-container relative">
+          <input class="full-width" [type]="hidePassword ? 'password' : 'text'"
+                [ngClass]="{'required': passwordControl.touched && passwordControl.invalid}"
+                formControlName="password">
+          <img class="pointer" [src]="'assets/icons/' + (hidePassword ? 'hidden' : 'eye') + '.png'" (click)="toggleHidePassword()">
+        </div>
+      </div>
+    }
+
+    @if (errorMessage) {
+      <div class="error-message">
+        {{ errorMessage }}
+      </div>
+    }
+
+    <div class="flex justify-end submit"
+          [ngClass]="{'next': true}">
+      <button type="button" class="pointer" (click)="proceedNext()" [disabled]="!hasCheckedPhoneNumber ? usernameControl.invalid : form.invalid">{{ (hasCheckedPhoneNumber ? 'login-btn' : 'next') | translate }}</button>
+    </div>
+  </form>
+</div>

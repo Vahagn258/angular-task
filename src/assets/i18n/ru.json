@@ -1,0 +1,16 @@
+{
+  "make-all-transactions": "Совершите все транзакции",
+  "without-living": "не выходя",
+  "home": "из дома",
+  "login": "ВХОД",
+  "enter-mobile": "Вводите номер телефона",
+  "next": "Следующий",
+  "enter-password": "Вводите пароль",
+  "login-btn": "Вход",
+  "search": "Найти",
+  "account-type": "Тип счета",
+  "account-number": "Номер счета",
+  "currency": "Валюта",
+  "balance": "Баланс",
+  "additional-info": "Дополнительная информация"
+}

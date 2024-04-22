@@ -1,0 +1,9 @@
+.language {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+
+  &_active {
+    color: var(--primary);
+  }
+}

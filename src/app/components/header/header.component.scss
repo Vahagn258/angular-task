@@ -1,0 +1,144 @@
+.container {
+  padding: 12px 30px;
+  background: var(--primary-grey);
+  color: white;
+
+  .logo {
+    color: white;
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  .log-out {
+    margin-left: 40px;
+  }
+
+  .account {
+    margin-right: 20px;
+
+    .name {
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .passport {
+      margin-right: 4px;
+      font-weight: 400;
+    }
+
+    .avatar {
+      border-radius: 50%;
+      border: 2px solid white;
+      width: 35px;
+      height: 35px;
+      margin-left: 12px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .menu {
+      position: absolute;
+      bottom: -4px;
+      color: black;
+      transform: translateY(100%);
+      box-shadow: 0px 8px 20px -3px #00000026;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.3) 100%);
+      width: 250px;
+      border-radius: 10px;
+
+      .close {
+        height: 38px;
+      }
+
+      .item {
+        height: 48px;
+        padding: 14px 20px;
+
+        img {
+          margin-right: 10px;
+        }
+
+        &.selected {
+          background: #4D4D4D80;
+          color: white;
+        }
+
+        .company {
+          font-size: 12px;
+          font-weight: 700;
+        }
+
+        .type {
+          font-size: 10px;
+          max-width: 65px;
+          text-align: right;
+        }
+      }
+
+    }
+  }
+
+  .search {
+
+    margin-right: 40px;
+
+    input {
+      background: transparent;
+      border: 1px solid white;
+      height: 24px;
+      border-radius: 30px;
+      outline: none;
+      color: white;
+      padding-left: 30px;
+      height: 24px;
+
+      &::placeholder {
+        color: white;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: "";
+      width: 12px;
+      height: 12px;
+      background-image: url('../../../assets/icons/search.svg');
+    }
+  }
+
+  .badge-container {
+    position: relative;
+  }
+
+  .badge {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-self: center;
+    top: -8px;
+    right: -8px;
+    border-radius: 50%;
+    padding: 4px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: 15px;
+    height: 15px;
+    box-shadow: 2px 3px 5px 0px #0000004D;
+  }
+}

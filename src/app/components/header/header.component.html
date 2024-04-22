@@ -1,0 +1,57 @@
+<div class="container flex justify-between relative">
+  @if(userData) {
+  <div class="logo flex align-center">
+    <img src="assets/logo.svg">
+    <p>IDBusiness</p>
+  </div>
+
+  <div class="flex align-center">
+
+    <div class="flex align-center search relative">
+      <input type="text" [placeholder]="'search' | translate">
+    </div>
+
+    <div class="account flex align-center">
+      <div class="flex flex-col align-center">
+        <p class="name">{{ userData.firstName }} {{ userData.lastName }}</p>
+        <div class="flex align-center">
+          <p class="passport">{{ userData.passportNumber }}</p>
+          <img class="pointer" [src]="'assets/icons/' + (isMenuOpen ? 'arrow-up' : 'arrow-down') + '.svg'"
+            (click)="toggleMenu()">
+
+          @if (isMenuOpen) {
+            <div class="menu flex flex-col">
+              <div class="close flex justify-end align-center">
+                <img src="assets/icons/close.svg" class="pointer" (click)="isMenuOpen = false">
+              </div>
+              @for (item of menuItems; track $index) {
+                <div class="item flex justify-between align-center" [ngClass]="{'selected': item.selected}">
+                  <div class="flex align-center company">
+
+                    <img src="assets/icons/menu-item.svg">
+                    <span>{{ item.companyName }}</span>
+                  </div>
+                  <span class="type">{{ item.type }}</span>
+                </div>
+              }
+            </div>
+          }
+        </div>
+      </div>
+      <img class="avatar"
+        src="https://s3-alpha-sig.figma.com/img/f95e/12c9/c1f82a274eee9933538c41e67d28b9b1?Expires=1714348800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=L75kqTalOHVMpadtFfrwmc2iNfIyYKFwtttbTSoFO4ceQF2jSzmVp4lDG1TN1XiqH5V6DnG9cpCQE66mZKUGT8a-3zQC61Q5wFteZQ6rdaU24CTmhFB-8ybASWp1s473lrJIAg7djIJEcyRnwnZeYwtk~zury~qMfs0mO43lsVW6hFFaGMZj-X-rXz13BpLznnOenUlqf6eO5T~4K-lB8oBjk60Q35TrJFotfUuZY6r-I3dWB7PxIzOJEw9eI3zRLdd~x6f6FswdljFL5rhLkxPQwfRcbML6VcuO-ARXxgUBCeSmO0TdwKSsmi9qqBBsyN2bLiPyMQW54-CCC6tQTg__">
+    </div>
+    <div class="icon pointer" [appBadge]="'red'" [badgeNumber]="5">
+      <img src="assets/icons/bell.svg">
+    </div>
+    <div class="icon pointer" [appBadge]="'red'" [badgeNumber]="5">
+      <img src="assets/icons/message.svg">
+    </div>
+    <div class="icon pointer">
+      <img src="assets/icons/settings.svg">
+    </div>
+    <app-switch-language></app-switch-language>
+    <img (click)="logout()" class="log-out pointer" src="assets/icons/log-out.svg">
+  </div>
+  }
+</div>

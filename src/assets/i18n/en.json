@@ -1,0 +1,17 @@
+{
+  "make-all-transactions": "Make all transactions",
+  "without-living": "without",
+  "home": "home",
+  "login": "LOG IN",
+  "select-code": "Select code",
+  "enter-mobile": "Enter mobile number",
+  "next": "Next",
+  "enter-password": "Enter password",
+  "login-btn": "Login",
+  "search": "Search",
+  "account-type": "Account type",
+  "account-number": "Account number",
+  "currency": "Currency",
+  "balance": "Balance",
+  "additional-info": "Additional info"
+}

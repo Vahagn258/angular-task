@@ -1,0 +1,12 @@
+<div class="flex">
+  @for (language of languages; track language.code; let ind = $index) {
+    <div class="language pointer" (click)="onLanguageChange(language.code)">
+      <span [ngClass]="{'language_active': language.code === activeLang}">
+        {{ language.label }}
+      </span>
+      @if (ind !== languages.length - 1) {
+        <span> | </span>
+      }
+    </div>
+  }
+</div>

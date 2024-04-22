@@ -1,0 +1,19 @@
+.container {
+  background: var(--primary-grey);
+  height: 100%;
+  color: white;
+  padding-top: 100px;
+  padding-left: 170px;
+
+  .bank-name {
+    font-size: 32px;
+  }
+
+  .description {
+    font-size: 16px;
+
+    p {
+      margin: 0;
+    }
+  }
+}
